@@ -8,7 +8,10 @@
 
     function sendCommand(action) {
         chrome.tabs.query({
-            "url": "https://play.pocketcasts.com/*",
+            "url": [
+                "https://play.pocketcasts.com/web/*",
+                "https://playbeta.pocketcasts.com/web/*"
+            ]
         }, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, { "action": action });
         });
